@@ -80,3 +80,9 @@ async def quantum_simulate(request: QuantumSimulationRequest):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+@router.post("/quantum-tunneling", response_model=QuantumSimulationResponse)
+async def quantum_tunneling(request: QuantumSimulationRequest):
+    """
+    Alias endpoint for quantum simulation (same as /quantum/simulate)
+    """
+    return await quantum_simulate(request)
