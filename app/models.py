@@ -39,7 +39,7 @@ class QuantumSimulationRequest(BaseModel):
     num_time_steps: Optional[int] = None  # If None, calculate from dt and t_max
 
 class QuantumSimulationResponse(BaseModel):
-    """Response model for quantum simulation results"""
+    """Response model for quantum simulation results (JSON endpoint)"""
     x: List[float]
     x_inner: List[float]  # Interior points for wavefunction
     potential: List[float]
@@ -48,12 +48,4 @@ class QuantumSimulationResponse(BaseModel):
     eigenenergies: List[float]
     barrier_height: float
     status: str = "success"
-
-class QuantumTunnelingJobResponse(BaseModel):
-    """Response model for quantum tunneling job submission"""
-    job_id: str
-    frame_count: int
-    n: int
-    dt: float
-    batch_size: int  # Number of frames per batch file
 
